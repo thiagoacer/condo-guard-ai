@@ -66,36 +66,36 @@ export default function Home() {
             <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-500">
               CondoGuard AI
             </h1>
-            <p className="text-gray-500 mt-2">Semantic Triage Engine v1.0</p>
+            <p className="text-gray-500 mt-2">Motor de Triagem Semântica v1.0</p>
           </header>
 
           <section className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-xl shadow-2xl">
             <h2 className="text-xl font-semibold mb-4 text-emerald-400 flex items-center gap-2">
               <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-              Input Simulation
+              Simulador de Entrada
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs uppercase text-gray-500 mb-1 tracking-wider">Source Channel</label>
+                <label className="block text-xs uppercase text-gray-500 mb-1 tracking-wider">Canal de Origem</label>
                 <select
                   value={source}
                   onChange={(e) => setSource(e.target.value)}
                   className="w-full bg-black/50 border border-gray-700 rounded p-3 text-white focus:ring-2 focus:ring-emerald-500 outline-none transition-all"
                 >
-                  <option value="WhatsApp">WhatsApp Gateway</option>
-                  <option value="Email">Email Server</option>
-                  <option value="SMS">SMS Provider</option>
+                  <option value="WhatsApp">WhatsApp (Gateway)</option>
+                  <option value="Email">E-mail</option>
+                  <option value="SMS">SMS</option>
                 </select>
               </div>
 
               <div>
-                <label className="block text-xs uppercase text-gray-500 mb-1 tracking-wider">Raw Message</label>
+                <label className="block text-xs uppercase text-gray-500 mb-1 tracking-wider">Mensagem do Morador</label>
                 <textarea
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   rows={4}
                   className="w-full bg-black/50 border border-gray-700 rounded p-3 text-white focus:ring-2 focus:ring-emerald-500 outline-none transition-all resize-none"
-                  placeholder="Enter message content..."
+                  placeholder="Digite a mensagem..."
                   required
                 />
               </div>
@@ -108,7 +108,7 @@ export default function Home() {
                   : 'bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-lg shadow-emerald-900/20'
                   }`}
               >
-                {loading ? 'Processing...' : 'Initialize Logic'}
+                {loading ? 'Processando...' : 'Processar Inteligência'}
               </button>
             </form>
           </section>
@@ -134,14 +134,14 @@ export default function Home() {
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent opacity-50"></div>
 
             <h2 className="text-sm font-semibold mb-4 text-gray-400 uppercase tracking-widest flex justify-between items-center">
-              <span>Agent Neural Activity</span>
-              {loading && <span className="text-emerald-500 animate-pulse">● LIVE</span>}
+              <span>Atividade Neural dos Agentes</span>
+              {loading && <span className="text-emerald-500 animate-pulse">● EM TEMPO REAL</span>}
             </h2>
 
             <div className="flex-1 overflow-y-auto space-y-4 pr-2 scrollbar-thin scrollbar-thumb-gray-800">
               {agentLogs.length === 0 && !loading && (
                 <div className="h-full flex items-center justify-center text-gray-700 text-sm italic">
-                  System Standby. Awaiting Input.
+                  Sistema em Standby. Aguardando input...
                 </div>
               )}
 
@@ -182,7 +182,7 @@ export default function Home() {
                   <svg className="w-16 h-16 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                 </div>
 
-                <h2 className="text-emerald-400 font-bold tracking-widest uppercase text-xs mb-4">Reservation Ticket</h2>
+                <h2 className="text-emerald-400 font-bold tracking-widest uppercase text-xs mb-4">Ticket de Reserva</h2>
 
                 <div className="flex justify-between items-end mb-4">
                   <div>
@@ -223,7 +223,7 @@ export default function Home() {
                   <svg className="w-16 h-16 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 4v1m6 11h2m-6 0h-2v4h-4v-4H8m13-4V7a1 1 0 00-1-1H4a1 1 0 00-1 1v3M4 7h16" /></svg>
                 </div>
 
-                <h2 className="text-blue-400 font-bold tracking-widest uppercase text-xs mb-4">Visitor Access Pass</h2>
+                <h2 className="text-blue-400 font-bold tracking-widest uppercase text-xs mb-4">Passe de Visitante (QR)</h2>
 
                 <div className="flex justify-between items-start mb-6">
                   <div>
@@ -242,7 +242,7 @@ export default function Home() {
                     <span className="font-mono text-blue-100">{result.visitor_access.qr_code_token}</span>
                   </div>
                   <div className="flex justify-between text-xs">
-                    <span className="text-blue-300">VALID UNTIL:</span>
+                    <span className="text-blue-300">VÁLIDO ATÉ:</span>
                     <span className="font-mono text-blue-100">{new Date(result.visitor_access.data_validade).toLocaleTimeString()}</span>
                   </div>
                 </div>
@@ -285,7 +285,7 @@ export default function Home() {
           {result && !loading && (
             <section className="bg-gray-800/50 border border-gray-700 rounded-xl p-6 animate-in zoom-in-95 duration-500">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-white font-semibold">Classification Result</h2>
+                <h2 className="text-white font-semibold">Resultado da Classificação</h2>
                 <span className={`px-3 py-1 rounded text-xs font-bold uppercase tracking-wider ${result.classification?.priority === 'P0' ? 'bg-red-500/20 text-red-400 border border-red-500/50 animate-pulse' :
                   result.classification?.priority === 'P1' ? 'bg-orange-500/20 text-orange-400 border border-orange-500/50' :
                     result.classification?.priority === 'P2' ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/50' :
@@ -301,13 +301,13 @@ export default function Home() {
 
               <div className="grid grid-cols-2 gap-4 text-xs">
                 <div className="bg-black/30 p-2 rounded">
-                  <span className="text-gray-500 block mb-1">CONFIDENCE</span>
+                  <span className="text-gray-500 block mb-1">CONFIANÇA</span>
                   <span className="text-emerald-400 font-mono text-lg">{(result.classification?.confidence_score * 100).toFixed(1)}%</span>
                 </div>
                 <div className="bg-black/30 p-2 rounded">
-                  <span className="text-gray-500 block mb-1">ACTION REQUIRED</span>
+                  <span className="text-gray-500 block mb-1">AÇÃO NECESSÁRIA</span>
                   <span className={result.action_required ? "text-red-400 font-bold" : "text-gray-400"}>
-                    {result.action_required ? "YES" : "NO"}
+                    {result.action_required ? "SIM" : "NÃO"}
                   </span>
                 </div>
               </div>
